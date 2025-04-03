@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: pfa_project
+  datasource:
+    url: jdbc:postgresql://localhost:5432/pfa_db
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver  # Explicit driver (recommended)
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true  # Pretty-print SQL
+        dialect: org.hibernate.dialect.PostgreSQLDialect  # Explicit dialect
