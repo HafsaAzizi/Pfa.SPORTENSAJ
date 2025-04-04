@@ -25,6 +25,7 @@ public class StudentController {
     }
 
     @GetMapping("/all-students")
+    @PreAuthorize("hasRole('TEACHER')")
     public ResponseEntity<List<StudentDTO>> getAllStudents() {
         return ResponseEntity.ok(studentService.getAllStudents());
     }
