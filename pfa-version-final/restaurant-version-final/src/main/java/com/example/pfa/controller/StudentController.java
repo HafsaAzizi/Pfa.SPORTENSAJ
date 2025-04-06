@@ -24,8 +24,8 @@ public class StudentController {
         return ResponseEntity.ok("student account created successfully");
     }
 
+    @PreAuthorize("hasRole('ROLE_TEACHER')")
     @GetMapping("/all-students")
-    @PreAuthorize("hasRole('TEACHER')")
     public ResponseEntity<List<StudentDTO>> getAllStudents() {
         return ResponseEntity.ok(studentService.getAllStudents());
     }

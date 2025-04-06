@@ -34,7 +34,7 @@ public abstract class PlatformUser {
 
     @Column(name = "role", insertable = false, updatable = false, nullable = false)
     @Enumerated(EnumType.STRING)
-    private Role role = Role.STUDENT;
+    private Role role;
 
     @Column(name = "gender", length = 50, nullable = false)
     private Gender gender;

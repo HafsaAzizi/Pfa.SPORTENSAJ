@@ -4,17 +4,22 @@ import com.example.pfa.enums.FieldType;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "field")
 public class Field {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "field_type", insertable = false, updatable = false, nullable = false)
+    @Column(name = "field_type", length = 50, nullable = false, unique = true)
     @Enumerated(EnumType.STRING)
     private FieldType fieldType;
 
+    @Column(name = "availability")
     private boolean availability;
+
+
+    public Field() {}
 
     public Field(Long id, FieldType fieldType, boolean availability) {
         this.id = id;
@@ -22,8 +27,6 @@ public class Field {
         this.availability = availability;
     }
 
-    public Field() {
-    }
 
     public Long getId() {
         return this.id;
