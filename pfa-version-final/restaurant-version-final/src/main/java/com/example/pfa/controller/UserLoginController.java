@@ -2,7 +2,6 @@ package com.example.pfa.controller;
 
 import com.example.pfa.DTO.LoginRequest;
 import com.example.pfa.service.PlatformUserService;
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -20,7 +19,7 @@ public class UserLoginController {
     private final PlatformUserService userService;
 
     @PostMapping()
-    public ResponseEntity<String> logIn(@RequestBody LoginRequest request, HttpServletRequest servletRequest) {
-        return ResponseEntity.ok("token: "+ userService.userLogIn(request, servletRequest));
+    public ResponseEntity<String> logIn(@RequestBody LoginRequest request) {
+        return ResponseEntity.ok("token: "+ userService.userLogIn(request));
     }
 }
