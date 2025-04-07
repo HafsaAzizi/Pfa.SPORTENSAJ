@@ -2,6 +2,7 @@ package com.example.pfa.service;
 
 import com.example.pfa.DTO.LoginRequest;
 import com.example.pfa.entity.PlatformUser;
+import com.example.pfa.enums.Role;
 import com.example.pfa.exceptions.IncorrectCredentialsException;
 import com.example.pfa.exceptions.UserNotFoundException;
 import com.example.pfa.repository.PlatformUserRepository;
@@ -19,6 +20,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -67,4 +70,5 @@ public class PlatformUserService {
     public PlatformUser getCurrentUser() {
         return getUserByEmail(SecurityContextHolder.getContext().getAuthentication().getName());
     }
+
 }
