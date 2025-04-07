@@ -4,6 +4,7 @@ import com.example.pfa.entity.Field;
 import com.example.pfa.entity.PlatformUser;
 import com.example.pfa.entity.Reservation;
 import com.example.pfa.enums.RequestStatus;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.Instant;
@@ -21,14 +22,14 @@ import java.time.Duration;
  * @param field the associated field
  */
 public record ReservationDTO(
-        @NotNull Long id,
-        @NotNull Instant reservationDate,
+        Long id,
+        @JsonFormat @NotNull Instant reservationDate,
         Instant reservationEnd,
         @NotNull Long duration,
         String requestOwner,
         @NotNull String requestText,
         @NotNull String password,
-        @NotNull String status,
+        String status,
         @NotNull String field
 ) {
     /**

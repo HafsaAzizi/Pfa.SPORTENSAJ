@@ -6,9 +6,11 @@ import jakarta.persistence.*;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
+import java.util.Set;
 
 
 @Entity
+@Table(name = "reservation")
 public class Reservation {
 
     @Id
@@ -44,12 +46,12 @@ public class Reservation {
 
     @OneToMany(cascade = CascadeType.ALL)
     @Column(name = "app_user_id", nullable = false)
-    private List<PlatformUser> player;
+    private Set<PlatformUser> player;
 
 
     public Reservation() {}
 
-    public Reservation(Long id, Instant reservationDate, Instant reservationEnd, Duration duration, PlatformUser requestOwner, String requestText, String password, RequestStatus status, Field field, List<PlatformUser> player) {
+    public Reservation(Long id, Instant reservationDate, Instant reservationEnd, Duration duration, PlatformUser requestOwner, String requestText, String password, RequestStatus status, Field field, Set<PlatformUser> player) {
         this.id = id;
         this.reservationDate = reservationDate;
         this.reservationEnd = reservationEnd;
@@ -110,11 +112,11 @@ public class Reservation {
         this.field = field;
     }
 
-    public List<PlatformUser> getPlayer() {
+    public Set<PlatformUser> getPlayer() {
         return player;
     }
 
-    public void setPlayer(List<PlatformUser> player) {
+    public void setPlayer(Set<PlatformUser> player) {
         this.player = player;
     }
 
